@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { generateResponse } from "../services/apiService";
-import LoadingSpinner from "./LoadingSpinner";  // Import the loading spinner
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
+import LoadingSpinner from "./LoadingSpinner";
 
 const ChatBox = () => {
   const [input, setInput] = useState("");  // User input for new question
