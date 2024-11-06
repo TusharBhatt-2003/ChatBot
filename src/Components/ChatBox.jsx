@@ -47,9 +47,9 @@ const ChatBox = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full justify-between bg-black p-4  overflow-hidden">
+    <div className="flex flex-col h-[100dvh] w-full justify-between bg-black p-4  overflow-hidden">
       {/* Conversation Section */}
-      <div className="flex-1 lg:px-20 overflow-y-auto space-y-4 p-4 scroll-smooth scroll overflow-hidden">
+      <div className="flex-1 mb-10 lg:px-20 overflow-y-auto space-y-4 p-4 scroll-smooth scroll">
         {conversation.map((entry, index) => (
           <div key={index} className="space-y-4 overflow-hidden">
             {/* User's question */}
@@ -60,7 +60,7 @@ const ChatBox = () => {
             </div>
 
             {/* AI's response */}
-            <div className="flex items-start overflow-hidden">
+            <div className="flex items-start">
               {entry.response === "Loading..." ? (
                 <LoadingSpinner />
               ) : entry.response.includes("```") ? (
@@ -83,7 +83,7 @@ const ChatBox = () => {
       </div>
 
       {/* Input Section */}
-      <div className="w-full p-4 flex items-center justify-around">
+      <div className="fixed bottom-0 right-0 left-0 w-full p-4 flex items-center justify-around">
         <textarea
           rows="1"
           className="w-3/4 bg-black text-white border-white outline-none p-2 border-b-2 "
