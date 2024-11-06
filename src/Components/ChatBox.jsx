@@ -34,7 +34,7 @@ const ChatBox = () => {
   // Function to format the response
   const formatResponse = (response) => {
   
-    response = response.replace(/##(.*?)\n/g, "<p class='text-2xl font-extrabold '>$1</p>");
+    response = response.replace(/##(.*?)\n/g, "<p class='text-2xl font-extrabold mb-2'>$1</p>");
 
     response = response.replace(/\*\*(.*?)\*\*/g, "<h1 class='text-lg font-bold mt-4'>$1</h1>");
 
@@ -47,20 +47,20 @@ const ChatBox = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full justify-between bg-black p-4">
+    <div className="flex flex-col h-screen w-full justify-between bg-black p-4  overflow-hidden">
       {/* Conversation Section */}
-      <div className="flex-1 overflow-y-auto space-y-4 p-4">
+      <div className="flex-1 lg:px-20 overflow-y-auto space-y-4 p-4 scroll-smooth scroll overflow-hidden">
         {conversation.map((entry, index) => (
-          <div key={index} className="space-y-2">
+          <div key={index} className="space-y-4 overflow-hidden">
             {/* User's question */}
-            <div className="text-right">
-              <div className="inline-block bg-white border-2 border-transparent text-black px-4 py-2 rounded-lg">
+            <div className="text-right overflow-hidden">
+              <div className="inline-block overflow-hidden bg-white border-2 border-transparent text-black px-4 py-2 rounded-lg">
                 {entry.question}
               </div>
             </div>
 
             {/* AI's response */}
-            <div className="flex items-start">
+            <div className="flex items-start overflow-hidden">
               {entry.response === "Loading..." ? (
                 <LoadingSpinner />
               ) : entry.response.includes("```") ? (
@@ -73,7 +73,7 @@ const ChatBox = () => {
                 </div>
               ) : (
                 <div
-                  className="inline-block bg-black border-2 border-white text-white px-4 py-2 rounded-lg"
+                  className="inline-block overflow-hidden bg-black border-2 border-white text-white px-4 py-2 rounded-lg"
                   dangerouslySetInnerHTML={{ __html: formatResponse(entry.response) }} // Use formatted response
                 />
               )}
@@ -83,10 +83,10 @@ const ChatBox = () => {
       </div>
 
       {/* Input Section */}
-      <div className="border-t w-full p-4 flex items-center justify-between">
+      <div className="w-full p-4 flex items-center justify-around">
         <textarea
           rows="1"
-          className="w-3/4 p-2 border rounded-lg"
+          className="w-3/4 bg-black text-white border-white outline-none p-2 border-b-2 "
           placeholder="Ask a question..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
