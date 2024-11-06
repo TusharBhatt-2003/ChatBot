@@ -47,9 +47,9 @@ const ChatBox = () => {
   };
 
   return (
-    <div className="flex flex-col h-[100dvh] w-full justify-between bg-black p-4  overflow-hidden">
+    <div className="flex flex-col  w-full justify-between bg-black p-4  overflow-hidden">
       {/* Conversation Section */}
-      <div className="flex-1 mb-5 lg:px-20 overflow-y-auto space-y-4 p-4 scroll-smooth scroll">
+      <div className="flex-1 h-fit mb-5 lg:px-20 overflow-y-auto space-y-4 p-4">
         {conversation.map((entry, index) => (
           <div key={index} className="space-y-4 overflow-hidden">
             {/* User's question */}
