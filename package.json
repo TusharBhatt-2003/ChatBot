@@ -16,6 +16,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "framer-motion": "^11.11.11",
+    "locomotive-scroll": "^4.1.4",
     "openai": "^4.71.0",
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
