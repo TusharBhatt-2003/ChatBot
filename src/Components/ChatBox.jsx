@@ -54,8 +54,8 @@ const ChatBox = () => {
   }, [conversation]);
 
   const formatResponse = (response) => {
-    response = response.replace(/##(.*?)\n/g, `<p class='text-2xl font-extrabold mb-2' style='color:${colorScheme.textColor}'>$1</p>`);
-    response = response.replace(/\*\*(.*?)\*\*/g, `<h1 class='text-lg font-bold mt-4' style='color:${colorScheme.textColor}'>$1</h1>`);
+    response = response.replace(/##(.*?)\n/g, `<p class='text-3xl font-["Crossed"] font-extrabold mb-2' style='color:${colorScheme.textColor}'>$1</p>`);
+    response = response.replace(/\*\*(.*?)\*\*/g, `<h1 class='font-["Crossed'] text-lg font-bold mt-4' style='color:${colorScheme.textColor}'>$1</h1>`);
     response = response.replace(/^\*(.*?)$/gm, `<p class='text-sm font-thin ml-4' style='color:${colorScheme.textColor}'>$1</p>`);
     response = response.replace(/\*(.*?)\n/g, `<p class='text-sm font-thin ml-4' style='color:${colorScheme.textColor}'>$1</p>`);
     response = response.replace(/```javascript(.*?)```/gs, `<div class='mt-4'><pre class='p-4 bg-gray-900 rounded-lg'><code class='language-javascript'>$1</code></pre></div>`);
@@ -75,7 +75,7 @@ const ChatBox = () => {
             {/* User's question */}
             <div className="text-right">
               <div
-                className="w-fit justify-self-end flex justify-center text-center items-center border-2 border-transparent px-2 py-1 rounded-lg"
+                className="w-fit font-['pp'] justify-self-end flex justify-center text-center items-center border-2 border-transparent pt-2  px-2 py-1 rounded-lg"
                 style={{ backgroundColor: colorScheme.textColor, color: colorScheme.bgColor }}
               >
                 <p>{entry.question}</p>
@@ -94,7 +94,7 @@ const ChatBox = () => {
                 </div>
               ) : (
                 <div
-                  className="inline-block border-2 px-4 py-2 rounded-lg"
+                  className="inline-block font-['pp'] border-2 px-4 py-2 rounded-lg"
                   style={{
                     backgroundColor: colorScheme.bgColor,
                     borderColor: colorScheme.textColor,
@@ -111,7 +111,7 @@ const ChatBox = () => {
       </div>
 
       {/* Input Section */}
-      <div className="w-full p-4 flex items-center justify-around">
+      <div className="w-full font-['pp'] p-4 flex items-center justify-around">
         <textarea
           rows="1"
           className="w-3/4 outline-none p-2 border-b-2 placeholder:text-[#47474760]"
@@ -126,7 +126,7 @@ const ChatBox = () => {
         />
         <button
           onClick={handleSendMessage}
-          className="px-4 py-2 rounded-lg"
+          className="px-4 py-2 pt-3 rounded-lg"
           style={{
             backgroundColor: colorScheme.sendBtnColor,
             color: colorScheme.bgColor,

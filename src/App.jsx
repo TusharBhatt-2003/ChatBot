@@ -20,7 +20,7 @@ const MainApp = () => {
     >
       {/* Clickable ChatBot header */}
       <p
-        className="fixed top-0 text-3xl font-bold cursor-pointer"
+        className="fixed select-none top-2 text-5xl font-['Bigger'] uppercase  cursor-pointer"
         style={{ color: colorScheme.textColor }} // Apply dynamic text color
         onClick={changeColor} // Change color sequentially on click
       >

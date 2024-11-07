@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: Bigger;
+    src: url(./assets/fonts/BiggerDisplay.otf);
+}
+@font-face {
+    font-family: Crossed;
+    src: url(./assets/fonts/CrossedOut.ttf);
+}
+
+@font-face {
+    font-family: pp;
+    src: url(./assets/fonts/PPFormula-Medium.otf);
+}
