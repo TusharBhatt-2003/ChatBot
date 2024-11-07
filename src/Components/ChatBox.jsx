@@ -53,6 +53,46 @@ const ChatBox = () => {
     };
   }, [conversation]);
 
+  useEffect(() => {
+    const styleTag = document.getElementById("dynamic-selection-style");
+    if (styleTag) {
+      styleTag.remove();
+    }
+    
+    // Convert the colorScheme.textColor to an RGBA value with opacity
+    const rgbaTextColor = hexToRgba(colorScheme.sendBtnColor, .3); // 0.5 represents 50% opacity
+  
+    const selectionStyle = `
+      ::selection {
+        background-color: ${rgbaTextColor};
+       
+      }
+    `;
+    
+    const newStyleTag = document.createElement("style");
+    newStyleTag.id = "dynamic-selection-style";
+    newStyleTag.innerHTML = selectionStyle;
+    document.head.appendChild(newStyleTag);
+  
+    return () => {
+      if (newStyleTag) {
+        newStyleTag.remove();
+      }
+    };
+  }, [colorScheme]);
+  
+  // Helper function to convert hex color to rgba
+  const hexToRgba = (hex, opacity) => {
+    const hexWithoutHash = hex.replace('#', '');
+  
+    const bigint = parseInt(hexWithoutHash, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+  
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  };
+  
   const formatResponse = (response) => {
     response = response.replace(/##(.*?)\n/g, `<p class='text-3xl font-["Crossed"] font-extrabold mb-2' style='color:${colorScheme.textColor}'>$1</p>`);
     response = response.replace(/\*\*(.*?)\*\*/g, `<h1 class='font-["Crossed'] text-lg font-bold mt-4' style='color:${colorScheme.textColor}'>$1</h1>`);
